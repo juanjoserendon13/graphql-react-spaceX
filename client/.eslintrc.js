@@ -1,12 +1,13 @@
 module.exports = {
   "parser": "babel-eslint",
+  "plugins": ["react", "jsx-a11y", "import"],
+   extends: [
+    'airbnb',
+  ],
   env: {
     browser: true,
     es6: true,
   },
-  extends: [
-    'airbnb',
-  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -18,7 +19,6 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  "plugins": ["react", "jsx-a11y", "import"],
   rules: {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "linebreak-style": [0],
