@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, lazy, Fragment } from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+
+// Import components
+const LaunchItem = lazy(() => import('./LaunchItem'));
 
 const LAUNCHES_QUERY = gql`
 query LaunchesQuery {
@@ -15,19 +18,28 @@ query LaunchesQuery {
 class Launches extends Component {
   render() {
     return (
-      <div>
-        <h1 className="display-5 my-3">Launches</h1>
+      <Fragment>
+        <h2 className="display-5 my-3">Launches</h2>
         <Query query={LAUNCHES_QUERY}>
           {
             ({ loading, error, data }) => {
               if (loading) return <h4>Loading...</h4>;
               if (error) console.log(error);
               console.log(data);
-              return <h1>Test</h1>;
+              return (
+                <Fragment>
+                  {data.launches.map(l => (
+                    <LaunchItem
+                      key={l.flight_number}
+                      data={l}
+                    />
+                  ))}
+                </Fragment>
+              );
             }
           }
         </Query>
-      </div>
+      </Fragment>
     );
   }
 }

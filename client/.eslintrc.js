@@ -1,7 +1,7 @@
 module.exports = {
   "parser": "babel-eslint",
   "plugins": ["react", "jsx-a11y", "import"],
-   extends: [
+  extends: [
     'airbnb',
   ],
   env: {
@@ -22,7 +22,8 @@ module.exports = {
   rules: {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "linebreak-style": [0],
-    "no-restricted-syntax": [0]
+    "no-restricted-syntax": [0],
+    camelcase:[0]
   },
   "settings": {
     "import/resolver": {
