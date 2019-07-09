@@ -4,6 +4,7 @@ import { Query } from 'react-apollo';
 
 // Import components
 const LaunchItem = lazy(() => import('./LaunchItem'));
+const MissionKey = lazy(() => import('./MissionKey'));
 
 const LAUNCHES_QUERY = gql`
 query LaunchesQuery {
@@ -20,6 +21,7 @@ class Launches extends Component {
     return (
       <Fragment>
         <h2 className="display-5 my-3">Launches</h2>
+        <MissionKey />
         <Query query={LAUNCHES_QUERY}>
           {
             ({ loading, error, data }) => {
