@@ -6,7 +6,7 @@ import './App.css';
 import Logo from './assets/img/spacex.png';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:5000/graphql',
+  uri: '/graphql',
 });
 
 // Lazy loading component
